@@ -200,6 +200,8 @@ button { cursor: pointer; }
   display: inline-flex;
   align-items: center;
   gap: .35rem;
+  flex-shrink: 1;
+  min-width: 0;
   font-size: .75rem;
   font-weight: 600;
   color: var(--text-2);
@@ -258,6 +260,8 @@ button { cursor: pointer; }
 }
 
 .t-peu { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-width: 0; }
+.t-peu > .btn { flex-shrink: 1; min-width: 0; }
+.t-peu .btn span { display: inline-block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .btn {
   display: inline-flex;
