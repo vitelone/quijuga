@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuiJugaBot · Qui Juga?</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 640px;
+           margin: 0 auto; padding: 1.5rem 1rem 3rem; line-height: 1.55; color: #111; }
+    h1 { color: #0b3d2e; font-size: 1.5rem; }
+    h2 { color: #0b3d2e; font-size: 1.1rem; margin-top: 1.8rem; }
+    code { background: #f3f5f4; padding: .1rem .35rem; border-radius: 4px; }
+    a { color: #14724f; }
+  </style>
+</head>
+<body>
+  <h1>QuiJugaBot</h1>
+  <p>
+    <code>QuiJugaBot</code> és el programa que recull, des de les pàgines públiques de
+    <a href="https://www.fcf.cat">fcf.cat</a>, l'horari i el camp dels partits del cap de setmana
+    per a <a href="/">Qui Juga?</a>. Qui Juga? és una eina gratuïta que mostra a les famílies quin partit
+    s'està jugant al camp on són i les envia a la fitxa oficial de la Federació Catalana de Futbol.
+  </p>
+
+  <h2>Com es comporta</h2>
+  <ul>
+    <li>S'executa de nit, de dimarts a divendres.</li>
+    <li>Fa una sola petició cada vegada, sense paral·lelisme, amb pauses de 2,5 a 5,5 segons entre peticions.</li>
+    <li>Si el servidor respon <code>429</code> o <code>503</code>, espera, i respecta la capçalera <code>Retry-After</code>.</li>
+    <li>Respecta el <code>robots.txt</code>. No accedeix mai a <code>/api/</code> ni a cap altra zona restringida.</li>
+    <li>S'identifica sempre com a <code>QuiJugaBot/0.1 (+https://quijuga.cat/bot)</code>.</li>
+  </ul>
+
+  <h2>Quines dades fa servir</h2>
+  <p>
+    Només dades del partit: data, hora, camp, categoria, equips i resultat.
+    <strong>No recull ni guarda cap nom de jugador, entrenador o àrbitre</strong>, encara que les pàgines
+    d'origen en continguin.
+  </p>
+
+  <h2>Contacte</h2>
+  <p>
+    Si sou responsables de fcf.cat i voleu que el bot canviï de comportament o deixi d'accedir al vostre web,
+    podeu obrir una <em>issue</em> al <a href="https://github.com/vitelone/quijuga/issues">repositori del projecte</a>,
+    o bé bloquejar <code>QuiJugaBot</code> al vostre <code>robots.txt</code>: ho respectarà a la següent execució.
+  </p>
+</body>
+</html>

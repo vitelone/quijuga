@@ -1,6 +1,10 @@
 // Qui Juga? — frontend (Vanilla JS, sense dependències)
 
-const FONTS_DADES = ['data/partits_setmana.json', 'data/mock_partits.json'];
+// Les dades de prova només es fan servir en local o amb ?mock: mai en producció.
+const ES_LOCAL = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+const FONTS_DADES = ES_LOCAL || new URLSearchParams(location.search).has('mock')
+  ? ['data/partits_setmana.json', 'data/mock_partits.json']
+  : ['data/partits_setmana.json'];
 const MARGE_ABANS_MIN = 15;   // marge de cortesia abans de l'inici
 const DESCANS_MIN = 10;       // descans estimat entre parts
 const REFRESC_MS = 30_000;    // refresc del minut de joc
@@ -317,7 +321,7 @@ async function carregaDades() {
       if (Array.isArray(dades.camps) && dades.camps.length) return dades;
     } catch { /* prova la següent font */ }
   }
-  throw new Error("No s'han pogut carregar les dades");
+  throw new Error("Encara no hi ha partits carregats per a aquesta setmana");
 }
 
 function lligaEsdeveniments() {
