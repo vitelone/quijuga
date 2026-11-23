@@ -63,6 +63,14 @@ cd public && python3 -m http.server 8000
 
 El paràmetre `ara` simula una data i una hora, per veure els partits de prova sense haver d'esperar al cap de setmana.
 
+## Llicència
+
+Qui Juga? és programari lliure: el pots fer servir, estudiar, modificar i redistribuir sota els termes de la [GNU General Public License v3.0](LICENSE). Si en fas una versió i la distribueixes, ha de continuar sent lliure i amb la mateixa llicència.
+
+Copyright © 2026 Els autors de Qui Juga?
+
+Les dades dels partits són de la [Federació Catalana de Futbol](https://www.fcf.cat) i no estan cobertes per aquesta llicència.
+
 ## Contacte
 
 Suggeriments, errors o un camp que no surt bé: obre una [*issue*](../../issues). Totes es llegeixen.
