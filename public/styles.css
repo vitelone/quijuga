@@ -258,7 +258,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ---------- Avís de dades de prova ---------- */
 body.prova .header::after {
-  content: "DADES DE PROVA · partits inventats";
+  content: "DADES DE PROVA · no són dades en directe";
   position: absolute;
   left: 50%;
   top: 40px;

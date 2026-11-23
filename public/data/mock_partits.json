@@ -297,7 +297,187 @@
       "lat": 41.146,
       "lon": 1.122,
       "partits": []
+    },
+    {
+      "id": "fcf_camp_de_futbol_cem_clot_de_la_mel",
+      "nom": "Camp de Futbol Cem Clot de la Mel",
+      "municipi": "",
+      "lat": 41.411121,
+      "lon": 2.195839,
+      "partits": [
+        {
+          "id_acta": "4188865",
+          "dia": "2026-10-24",
+          "hora": "09:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "VILA OLIMPICA CLUB ESP. 'B'",
+          "visitant": "FUNDACIO P.E. EUROPA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-5/vila-olimpica-club-esp-b-1b9-vs-fundacio-pe-europa-b-1b9",
+          "resultat_cache": "3-2"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_cem_fort_pienc",
+      "nom": "Camp de Futbol Cem Fort-Pienc",
+      "municipi": "",
+      "lat": 41.395547,
+      "lon": 2.184793,
+      "partits": [
+        {
+          "id_acta": "4188880",
+          "dia": "2026-11-07",
+          "hora": "14:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "Pª BARC. CINC COPES 'A'",
+          "visitant": "FUNDACIO P.E. EUROPA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-7/pa-barc-cinc-copes-a-1b9-vs-fundacio-pe-europa-b-1b9",
+          "resultat_cache": "6-2"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_cem_la_bascula_emilio_fernandez_f11",
+      "nom": "Camp de Futbol Cem la Bascula Emilio Fernandez F11",
+      "municipi": "",
+      "lat": 41.358501,
+      "lon": 2.146335,
+      "partits": [
+        {
+          "id_acta": "4188840",
+          "dia": "2026-10-03",
+          "hora": "10:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "ESCOLA F ANGEL PEDRAZA 'A'",
+          "visitant": "FUNDACIO P.E. EUROPA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-2/escola-f-angel-pedraza-a-1b9-vs-fundacio-pe-europa-b-1b9",
+          "resultat_cache": "1-6"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_cem_torrent_de_llops",
+      "nom": "Camp de Futbol Cem Torrent de Llops",
+      "municipi": "",
+      "lat": 41.483605,
+      "lon": 1.914067,
+      "partits": [
+        {
+          "id_acta": "4188857",
+          "dia": "2026-10-17",
+          "hora": "10:30",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "MARTORELL C.F. 'B'",
+          "visitant": "FUNDACIO P.E. EUROPA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-4/martorell-cf-b-1b9-vs-fundacio-pe-europa-b-1b9",
+          "resultat_cache": "4-1"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_col_legi_escala_dei_providencia_de_corazon_de_jesus",
+      "nom": "Camp de Futbol Col·legi Escala Dei-Providencia de Corazon de Jesus",
+      "municipi": "",
+      "lat": 41.438155,
+      "lon": 2.157475,
+      "partits": [
+        {
+          "id_acta": "4188848",
+          "dia": "2026-10-10",
+          "hora": "12:15",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "FUNDACIO P.E. EUROPA 'B'",
+          "visitant": "BARCELONA, F.C. 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-3/fundacio-pe-europa-b-1b9-vs-barcelona-fc-b-1b9",
+          "resultat_cache": "0-4"
+        },
+        {
+          "id_acta": "4188873",
+          "dia": "2026-10-31",
+          "hora": "10:45",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "FUNDACIO P.E. EUROPA 'B'",
+          "visitant": "ESCOLA DE FUTBOL PREMIER BARCELONA 'C'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-6/fundacio-pe-europa-b-1b9-vs-escola-de-futbol-premier-barcelona-c-1b9",
+          "resultat_cache": "4-5"
+        },
+        {
+          "id_acta": "4188888",
+          "dia": "2026-11-14",
+          "hora": "11:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "FUNDACIO P.E. EUROPA 'B'",
+          "visitant": "SANT ANDREU, U.E 'C'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-8/fundacio-pe-europa-b-1b9-vs-sant-andreu-ue-c-1b9",
+          "resultat_cache": "4-5"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_municipal_horta",
+      "nom": "Camp de Futbol Municipal Horta",
+      "municipi": "Barcelona",
+      "lat": 41.434667,
+      "lon": 2.160872,
+      "partits": [
+        {
+          "id_acta": "4188895",
+          "dia": "2026-11-22",
+          "hora": "09:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "HORTA, U.AT. 'A'",
+          "visitant": "FUNDACIO P.E. EUROPA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-9/horta-uat-a-1b9-vs-fundacio-pe-europa-b-1b9",
+          "resultat_cache": "1-3"
+        }
+      ]
+    },
+    {
+      "id": "fcf_camp_de_futbol_municipal_l_aliga",
+      "nom": "Camp de Futbol Municipal l'Àliga",
+      "municipi": "",
+      "lat": 41.415165,
+      "lon": 2.136291,
+      "partits": [
+        {
+          "id_acta": "4188831",
+          "dia": "2026-09-26",
+          "hora": "08:45",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": null,
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 9",
+          "local": "FUNDACIO P.E. EUROPA 'B'",
+          "visitant": "PENYA BARC. COLLBLANC SANTS,AE 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-1/fundacio-pe-europa-b-1b9-vs-penya-barc-collblanc-sants-ae-a-1b9",
+          "resultat_cache": "4-3"
+        }
+      ]
     }
   ],
-  "_avis": "DADES DE PROVA INVENTADES: els partits no són reals i els enllaços no existeixen."
+  "_avis": "DADES DE PROVA. Els camps amb id 'fcf_08...' a 'fcf_43...' són inventats (enllaços inexistents). Els camps 'fcf_camp_de_futbol_...' són partits REALS ja jugats de la Fundació PE Europa 'B' (temporada 2026-27), amb enllaços oficials que funcionen."
 }
