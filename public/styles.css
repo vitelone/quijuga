@@ -83,6 +83,7 @@ button { cursor: pointer; }
   align-items: center;
   justify-content: space-between;
   gap: .75rem;
+  min-width: 0;
   padding: 10px 1rem;
   padding-top: calc(10px + env(safe-area-inset-top));
   background: var(--superficie);
@@ -116,13 +117,14 @@ button { cursor: pointer; }
   font-weight: 500;
 }
 .camp-btn .ico:first-child { color: var(--accent); }
-.camp-btn span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.camp-btn span { display: inline-block; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- Contingut ---------- */
 .contingut {
   display: flex;
   flex-direction: column;
   gap: .6rem;
+  min-width: 0;
   padding: .85rem 1rem .75rem;
   overflow-y: auto;
   min-height: 0;
