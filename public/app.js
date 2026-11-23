@@ -61,6 +61,27 @@ function haversine(lat1, lon1, lat2, lon2) {
 
 const formataDist = (km) => (km < 1 ? `${Math.round(km * 1000)} m` : `${km.toFixed(km < 10 ? 1 : 0)} km`);
 
+// ---------- Icones (SVG pròpies, traç 1.8, 24×24) ----------
+
+const svg = (cos) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${cos}</svg>`;
+const ICONA = {
+  extern: svg('<path d="M8 16 16 8"/><path d="M9.5 8H16v6.5"/>'),
+  refresca: svg('<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/>'),
+  localitza: svg('<circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="1.8"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/>'),
+  avall: svg('<path d="m7 10 5 5 5-5"/>'),
+};
+
+/** "PRIMERA DIVISIÓ BENJAMÍ S9" -> "Primera Divisió Benjamí S9" (l'FCF ho dona en majúscules). */
+function bonica(text) {
+  const t = String(text ?? '');
+  if (t !== t.toUpperCase()) return t;
+  return t.toLowerCase().split(' ').map((w, i) => {
+    if (/^[a-z]?\d+[a-z]?$/.test(w) || /^f-?\d+$/.test(w)) return w.toUpperCase();
+    if (i && ['de', 'del', 'i', 'la', 'el', 'a'].includes(w)) return w;
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  }).join(' ');
+}
+
 const DIES = ['Diumenge', 'Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'];
 
 // ---------- Lògica de partits ----------
@@ -87,11 +108,11 @@ function estatPartit(p, t) {
     const txt = falta >= 60 ? `${Math.floor(falta / 60)} h ${pad(falta % 60)}'` : `${falta}'`;
     return { text: `Comença en ${txt}`, proper: true, pendent: true };
   }
-  if (min < mitja) return { text: `● 1a part · ${min + 1}'` };
-  if (min < mitja + DESCANS_MIN) return { text: '● Descans' };
+  if (min < mitja) return { text: `1a part · ${min + 1}'`, viu: true };
+  if (min < mitja + DESCANS_MIN) return { text: 'Descans', viu: true };
   const m2 = min - DESCANS_MIN;
-  if (m2 < durada) return { text: `● 2a part · ${m2 + 1}'` };
-  return { text: 'Final (aprox.)', proper: true };
+  if (m2 < durada) return { text: `2a part · ${m2 + 1}'`, viu: true };
+  return { text: 'Final aprox.', proper: true };
 }
 
 /** Separa "Benjamí Segona Divisió - Grup 14" en categoria i grup. */
@@ -110,24 +131,24 @@ function htmlTargeta(p, t, idx, total) {
   const { nom, grup } = separaCategoria(p.categoria);
   const st = estatPartit(p, t);
   const sub = p.subcamp || (total > 1 ? `Partit ${String.fromCharCode(65 + idx)}` : '');
-  const res = p.resultat_cache;
+  const [gl, gv] = p.resultat_cache ? String(p.resultat_cache).split('-') : ['', ''];
   return `
     <article class="targeta" data-acta="${escapa(p.id_acta)}">
-      <div class="targeta-cap">
-        <span class="etiqueta">⚽ ${escapa(p.modalitat || 'F11')}</span>
-        ${sub ? `<span class="etiqueta sub">${escapa(sub)}</span>` : ''}
-        <span class="categoria">${escapa(nom)}</span>
-        ${grup ? `<span class="grup">${escapa(grup)}</span>` : ''}
+      <div class="t-cap">
+        <span class="xips">
+          <span class="xip">${escapa(p.modalitat || 'F11')}</span>
+          ${sub ? `<span class="xip xip-sub">${escapa(sub)}</span>` : ''}
+        </span>
+        <span class="estat-partit${st.viu ? ' viu' : ''}">${escapa(st.text)}</span>
       </div>
-      <div class="equips">
-        <span class="local">${escapa(p.local)}</span>
-        <span class="${res ? 'marcador' : 'vs'}">${res ? escapa(res) : 'vs'}</span>
-        <span class="visitant">${escapa(p.visitant)}</span>
+      <p class="t-cat"><strong>${escapa(bonica(nom))}</strong>${grup ? ` <span>· ${escapa(bonica(grup))}</span>` : ''}</p>
+      <div class="t-equips">
+        <span class="equip">${escapa(p.local)}</span><span class="gols">${escapa(gl)}</span>
+        <span class="equip">${escapa(p.visitant)}</span><span class="gols">${escapa(gv)}</span>
       </div>
-      <div class="accions">
-        ${st.pendent ? '<span></span>' : `<button class="btn btn-marcador" type="button" data-acta="${escapa(p.id_acta)}">🔄 Resultat</button>`}
-        <span class="minut${st.proper ? ' proper' : ''}">${escapa(st.text)}</span>
-        <a class="btn primari" href="${escapa(p.url_fcf)}" target="_blank" rel="noopener">Fitxa FCF ↗</a>
+      <div class="t-peu">
+        ${st.pendent ? '<span></span>' : `<button class="btn btn-marcador" type="button" data-acta="${escapa(p.id_acta)}">${ICONA.refresca}<span>Marcador</span></button>`}
+        <a class="btn primari" href="${escapa(p.url_fcf)}" target="_blank" rel="noopener"><span>Fitxa FCF</span>${ICONA.extern}</a>
       </div>
     </article>`;
 }
@@ -140,13 +161,18 @@ function htmlJornada(partits, t, titol) {
     const sub = p.subcamp ? ` · ${p.subcamp}` : '';
     return `
       <li class="${passat ? 'passat' : ''}">
-        <span class="h">${escapa(p.hora)}</span>
-        <span>${escapa(p.local)} – ${escapa(p.visitant)}
-          <span class="cat">${escapa(p.modalitat)}${escapa(sub)} · ${escapa(nom)}</span></span>
-        <a href="${escapa(p.url_fcf)}" target="_blank" rel="noopener" aria-label="Fitxa FCF">${p.resultat_cache ? escapa(p.resultat_cache) : '↗'}</a>
+        <a href="${escapa(p.url_fcf)}" target="_blank" rel="noopener">
+          <span class="h">${escapa(p.hora)}</span>
+          <span class="eq">
+            <span>${escapa(p.local)}</span>
+            <span>${escapa(p.visitant)}</span>
+            <small>${escapa(p.modalitat)}${escapa(sub)} · ${escapa(bonica(nom))}</small>
+          </span>
+          <span class="r">${p.resultat_cache ? escapa(p.resultat_cache) : ICONA.extern}</span>
+        </a>
       </li>`;
   }).join('');
-  return `<details class="jornada"><summary>${escapa(titol)}</summary><ul>${files}</ul></details>`;
+  return `<details class="jornada"><summary><span>${escapa(titol)}</span>${ICONA.avall}</summary><ul>${files}</ul></details>`;
 }
 
 function render() {
@@ -169,11 +195,11 @@ function render() {
   if (actius.length) {
     // Cas 1 (un partit) o Cas 2 (simultanis F7 Camp A / Camp B)
     el.contingut.innerHTML = `
-      <h2 class="titol-seccio"><span class="viu">●</span> Partits en joc ara (${escapa(hora)})</h2>
+      <h2 class="titol-seccio"><span class="punt-viu" aria-hidden="true"></span>En joc ara <span class="hora">${escapa(hora)}</span></h2>
       <div class="targetes ${actius.length === 1 ? 'unica' : 'multiple'}">
         ${actius.map((p, i) => htmlTargeta(p, ms, i, actius.length)).join('')}
       </div>
-      ${htmlJornada(dAvui, ms, `Veure tots els partits d'avui al camp (${dAvui.length})`)}`;
+      ${htmlJornada(dAvui, ms, `Tots els partits d'avui · ${dAvui.length}`)}`;
     return;
   }
 
@@ -184,19 +210,19 @@ function render() {
     const seguents = futurs.filter((p) => p.dia === p0.dia && p.hora === p0.hora);
     const quan = p0.dia === avui ? `avui a les ${p0.hora}` : `${DIES[inici(p0).getDay()].toLowerCase()} ${p0.dia.slice(8)}/${p0.dia.slice(5, 7)} a les ${p0.hora}`;
     el.contingut.innerHTML = `
-      <h2 class="titol-seccio">Cap partit en joc · Pròxim ${escapa(quan)}</h2>
+      <h2 class="titol-seccio">Pròxim partit <span class="hora">${escapa(quan)}</span></h2>
       <div class="targetes ${seguents.length === 1 ? 'unica' : 'multiple'}">
         ${seguents.map((p, i) => htmlTargeta(p, ms, i, seguents.length)).join('')}
       </div>
       ${htmlJornada(dAvui.length ? dAvui : partits.filter((p) => p.dia === p0.dia),
-        ms, dAvui.length ? `Resta de la jornada d'avui (${dAvui.length})` : `Jornada del ${p0.dia.slice(8)}/${p0.dia.slice(5, 7)}`)}`;
+        ms, dAvui.length ? `Tots els partits d'avui · ${dAvui.length}` : `Jornada del ${p0.dia.slice(8)}/${p0.dia.slice(5, 7)}`)}`;
     return;
   }
 
   el.contingut.innerHTML = `
     <h2 class="titol-seccio">${escapa(hora)}</h2>
     <p class="estat">No hi ha més partits programats aquesta setmana en aquest camp.</p>
-    ${htmlJornada(dAvui, ms, `Partits d'avui (${dAvui.length})`)}`;
+    ${htmlJornada(dAvui, ms, `Partits d'avui · ${dAvui.length}`)}`;
 }
 
 // ---------- Marcador (Fase 3: Cloudflare Worker) ----------
@@ -204,7 +230,7 @@ function render() {
 async function actualitzaMarcador(btn) {
   const acta = btn.dataset.acta;
   btn.disabled = true;
-  btn.textContent = '⏳';
+  btn.classList.add('carregant');
   try {
     const r = await fetch(`/api/marcador?acta=${encodeURIComponent(acta)}`, { cache: 'no-store' });
     if (!r.ok) throw new Error(r.status);
@@ -214,8 +240,9 @@ async function actualitzaMarcador(btn) {
     if (p) p.resultat_cache = resultat;
     render();
   } catch {
-    btn.textContent = 'No disponible';
-    setTimeout(() => { btn.textContent = '🔄 Resultat'; btn.disabled = false; }, 2500);
+    btn.classList.remove('carregant');
+    btn.querySelector('span').textContent = 'No disponible';
+    setTimeout(() => { btn.querySelector('span').textContent = 'Marcador'; btn.disabled = false; }, 2500);
   }
 }
 
@@ -292,9 +319,13 @@ function obreSelector() {
   el.cerca.focus();
 }
 
+function textGps(text) {
+  el.btnGps.innerHTML = `${ICONA.localitza}<span>${escapa(text)}</span>`;
+}
+
 async function usaGps({ tancaSelector = false } = {}) {
   el.btnGps.disabled = true;
-  el.btnGps.textContent = '📡 Localitzant…';
+  textGps('Localitzant…');
   try {
     estat.posicio = await demanaPosicio();
     const c = campMesProper(estat.posicio);
@@ -302,11 +333,11 @@ async function usaGps({ tancaSelector = false } = {}) {
     if (tancaSelector && el.selector.open) el.selector.close();
     return true;
   } catch {
-    el.btnGps.textContent = '📡 Ubicació no disponible';
+    textGps('Ubicació no disponible');
     return false;
   } finally {
     el.btnGps.disabled = false;
-    setTimeout(() => { el.btnGps.textContent = '📡 Usar la meva ubicació'; }, 2000);
+    setTimeout(() => textGps('Usar la meva ubicació'), 2000);
     if (el.selector.open) renderLlista();
   }
 }
@@ -329,6 +360,7 @@ async function carregaDades() {
 }
 
 function lligaEsdeveniments() {
+  textGps('Usar la meva ubicació');
   el.btnCamp.addEventListener('click', obreSelector);
   el.cerca.addEventListener('input', renderLlista);
   el.btnGps.addEventListener('click', () => usaGps({ tancaSelector: true }));

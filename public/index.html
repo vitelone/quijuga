@@ -3,18 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b3d2e">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0e0c" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="Quin partit s'està jugant ara en aquest camp? Equips, categoria i acta de l'FCF a l'instant.">
   <title>Qui Juga? · Partits en joc ara al teu camp</title>
+  <link rel="preload" href="fonts/Geist-var.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Puja el número de ?v= quan canviïs styles.css o app.js (evita còpies antigues al navegador) -->
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <div class="app">
     <header class="header">
-      <a class="logo" href="./">Qui<span>Juga</span>.cat</a>
+      <a class="logo" href="./" aria-label="Qui Juga? — inici">
+        <svg class="logo-marca" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="6" />
+          <path d="M12 2v20" />
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+        <span class="logo-text"><span class="logo-quiet">qui</span>juga<span class="logo-cat">.cat</span></span>
+      </a>
       <button id="btn-camp" class="camp-btn" type="button" aria-haspopup="dialog">
-        📍 <span id="camp-nom">Detectant…</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-3.5-3.6-7-7.1-7-11a7 7 0 0 1 14 0c0 3.9-3.5 7.4-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span id="camp-nom">Detectant…</span>
+        <svg class="ico ico-petita" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>
       </button>
     </header>
 
@@ -23,19 +35,24 @@
     </main>
 
     <aside class="publicitat" aria-label="Publicitat">
-      <div class="ad-slot">PUBLICITAT</div>
+      <div class="ad-slot">Espai reservat</div>
     </aside>
   </div>
 
   <dialog id="selector" class="selector">
     <form method="dialog" class="selector-cap">
-      <input id="cerca" type="search" placeholder="Cerca camp o municipi…" autocomplete="off" aria-label="Cerca camp">
-      <button class="tancar" value="cancel" aria-label="Tancar">✕</button>
+      <label class="cerca">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+        <input id="cerca" type="search" placeholder="Cerca camp o municipi" autocomplete="off" aria-label="Cerca camp">
+      </label>
+      <button class="tancar" value="cancel" aria-label="Tancar">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>
+      </button>
     </form>
-    <button id="btn-gps" type="button" class="gps-btn">📡 Usar la meva ubicació</button>
+    <button id="btn-gps" type="button" class="gps-btn"></button>
     <ul id="llista-camps" class="llista-camps"></ul>
   </dialog>
 
-  <script src="app.js?v=3" type="module"></script>
+  <script src="app.js?v=4" type="module"></script>
 </body>
 </html>
