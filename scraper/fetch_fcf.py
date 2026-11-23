@@ -22,6 +22,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterable
 
+from http_client import Prohibit
 from model import PartitBrut
 
 ARREL = Path(__file__).resolve().parent.parent
@@ -295,6 +296,8 @@ def completa_camps(client, index: IndexCamps, partits: list[PartitBrut], recull_
             try:
                 mapa = slugs_camps(client)
                 log.info("%d camps al sitemap de camps", len(mapa))
+            except Prohibit:
+                raise
             except Exception as e:
                 log.warning("No s'ha pogut llegir el sitemap de camps: %s", e)
                 mapa = {}
@@ -327,6 +330,8 @@ def completa_camps(client, index: IndexCamps, partits: list[PartitBrut], recull_
             continue
         try:
             fitxa = recull_camp(client, s)
+        except Prohibit:
+            raise
         except Exception as e:
             log.warning("No s'ha pogut llegir el camp %s: %s", s, e)
             fitxa = None
@@ -440,6 +445,9 @@ def main(argv: list[str] | None = None) -> int:
             # 90% per al rastreig de partits; la resta, per a fitxes de camp noves
             part=args.part, temps_max_s=temps_total * 0.9, informe=informe,
         ))
+    except Prohibit as e:
+        log.error("%s No s'escriu res i no es farà cap altra petició.", e)
+        return 3
     except Exception:
         log.exception("El scraper ha fallat; es manté el JSON anterior")
         return 1
@@ -460,8 +468,12 @@ def main(argv: list[str] | None = None) -> int:
         if mateixa_setmana else nous
 
     index = IndexCamps.carrega(args.coords)
-    n_camps = completa_camps(client, index, nous, fcf_parser.recull_camp, fcf_parser.camps_del_sitemap,
-                             temps_max_s=max(60.0, temps_total - (time.monotonic() - t0)))
+    try:
+        n_camps = completa_camps(client, index, nous, fcf_parser.recull_camp, fcf_parser.camps_del_sitemap,
+                                 temps_max_s=max(60.0, temps_total - (time.monotonic() - t0)))
+    except Prohibit as e:
+        log.error("%s No s'escriu res.", e)
+        return 3
     if not args.dry_run:
         index.desa(args.coords)
         if n_camps:

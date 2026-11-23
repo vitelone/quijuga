@@ -16,6 +16,8 @@ USER_AGENT = "QuiJugaBot/0.1 (+https://quijuga.cat/bot)"
 ROBOTS_TOKEN = "QuiJugaBot"
 CAMINS_PROHIBITS = ("/api/",)      # explícitament prohibit al robots.txt de l'FCF
 CODIS_REINTENT = {429, 502, 503, 504}
+# El servidor ens denega l'accés: s'atura TOTA l'execució. Mai es reintenta ni s'esquiva.
+CODIS_PROHIBIT = {401, 403}
 
 
 class Robots:
@@ -76,6 +78,10 @@ class Robots:
 
 class Blocat(Exception):
     """La URL no es pot demanar (robots.txt, camí prohibit o límit de peticions)."""
+
+
+class Prohibit(Blocat):
+    """El servidor ens ha denegat l'accés (401/403). S'ha d'aturar TOT, sempre."""
 
 
 class ClientEducat:
@@ -163,6 +169,11 @@ class ClientEducat:
             except (requests.ConnectionError, requests.Timeout) as e:
                 log.warning("Error de xarxa a %s (%s), intent %d", url, e, intent + 1)
             else:
+                if resposta.status_code in CODIS_PROHIBIT:
+                    raise Prohibit(
+                        f"HTTP {resposta.status_code} a {url}: el servidor denega l'accés a {ROBOTS_TOKEN}. "
+                        "S'atura l'execució sencera."
+                    )
                 if resposta.status_code not in CODIS_REINTENT:
                     resposta.raise_for_status()
                     resposta.encoding = resposta.encoding or "utf-8"

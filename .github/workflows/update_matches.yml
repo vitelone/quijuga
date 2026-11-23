@@ -5,8 +5,11 @@ name: Actualitza partits
 # Cada part fusiona el seu resultat amb el JSON de la part anterior de la setmana.
 
 on:
-  schedule:
-    - cron: "30 3 * * 2-5"   # 03:30 UTC, dimarts a divendres
+  # DESACTIVAT el 23/11/2026: fcf.cat va començar a respondre 403 a QuiJugaBot després
+  # d'~1.000 peticions. No es reactiva fins a saber si és un límit de ritme o un bloqueig
+  # voluntari (i, si és voluntari, fins a parlar-ne amb l'FCF).
+  # schedule:
+  #   - cron: "30 3 * * 2-5"   # 03:30 UTC, dimarts a divendres
   workflow_dispatch:
     inputs:
       parts:

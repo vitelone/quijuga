@@ -29,7 +29,7 @@ from collections import deque
 
 from bs4 import BeautifulSoup
 
-from http_client import Blocat, ClientEducat
+from http_client import Blocat, ClientEducat, Prohibit
 from model import PartitBrut
 
 log = logging.getLogger(__name__)
@@ -230,6 +230,8 @@ def recull_sitemap(client: ClientEducat, arrel: str, maxim: int = 200, segueix=N
         vistos.add(sm)
         try:
             urls, subs = parse_sitemap(client.get(sm))
+        except Prohibit:
+            raise
         except Blocat as e:
             log.warning("%s", e)
             continue
@@ -417,6 +419,8 @@ def recull_partits(
         grups = {f"{c}/{g}" for c, g in grups_del_sitemap(client, temp, filtre)}
         if part:
             grups = {g for g in grups if part_de(g, part[1]) == part[0]}
+    except Prohibit:
+        raise
     except Exception as e:
         log.warning("No s'ha pogut llegir el sitemap de grups: %s", e)
         grups = set()

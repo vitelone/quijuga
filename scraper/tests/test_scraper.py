@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import requests  # noqa: E402
 
 import fetch_fcf as f  # noqa: E402
-from http_client import Blocat, ClientEducat, Robots  # noqa: E402
+from http_client import Blocat, ClientEducat, Prohibit, Robots  # noqa: E402
 from model import PartitBrut  # noqa: E402
 
 ROBOTS = "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /ca/cerca\n\nUser-Agent: ClaudeBot\nDisallow: /\n"
@@ -87,6 +87,24 @@ class TestClient(unittest.TestCase):
         c, _ = client({url: [RespostaFalsa(503)]}, max_intents=3)
         with self.assertRaises(requests.HTTPError):
             c.get(url)
+
+    def test_403_atura_tot_sense_reintentar(self):
+        url = "https://www.fcf.cat/ca/a"
+        c, esperes = client({url: [RespostaFalsa(403)]})
+        with self.assertRaises(Prohibit):
+            c.get(url)
+        self.assertEqual(c.sessio.demanades.count(url), 1)
+        self.assertEqual(esperes, [])       # ni pauses ni reintents
+
+    def test_403_atura_el_recorregut(self):
+        r = TestRecorregut()
+        r.setUp()
+        sessio = SessioFalsa({"https://www.fcf.cat/robots.txt": [RespostaFalsa(text=ROBOTS)],
+                              **{f"https://www.fcf.cat{k}": [RespostaFalsa(403)] for k in r.pagines}})
+        cl = ClientEducat(sessio=sessio, dorm=lambda s: None)
+        with self.assertRaises(Prohibit):
+            list(fp.recull_partits(cl, date(2026, 11, 27), date(2026, 11, 29), entrades=r.entrades))
+        self.assertEqual(cl.peticions, 1)   # el primer 403 (sitemap de grups) ja ho atura tot
 
     def test_404_no_es_reintenta(self):
         url = "https://www.fcf.cat/ca/a"
@@ -628,3 +646,23 @@ class TestOrdreITemps(unittest.TestCase):
         sense = [x for x in index.camps if not x["municipi"]]
         self.assertTrue(sense)
         self.assertFalse(any(x.get("fitxa_fallida") for x in sense))   # es reintentaran
+
+
+class TestProhibitAMain(unittest.TestCase):
+    def test_main_surt_amb_3_i_no_escriu(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "x.json"
+            p.write_text('{"total_partits": 7}')
+            with mock.patch("fcf_parser.recull_partits", side_effect=Prohibit("HTTP 403")):
+                self.assertEqual(f.main(["--sortida", str(p), *rutes_temporals(d)]), 3)
+            self.assertEqual(p.read_text(), '{"total_partits": 7}')
+            self.assertFalse((Path(d) / "eq.json").exists())
+
+    def test_prohibit_a_les_fitxes_de_camp_tambe_atura(self):
+        p = PartitBrut(id_acta="1", dia="2026-11-28", hora="10:00", camp_nom="Camp", camp_municipi="",
+                       categoria="", local="", visitant="", url_fcf="", camp_codi="1", camp_fitxa="/ca/camps/x")
+
+        def prohibit(client, fitxa):
+            raise Prohibit("403")
+        with self.assertRaises(Prohibit):
+            f.completa_camps(None, f.IndexCamps([]), [p], prohibit)
