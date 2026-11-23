@@ -9,13 +9,97 @@
       "lat": 41.4116,
       "lon": 2.1628,
       "partits": [
-        { "id_acta": "12345670", "dia": "2026-11-28", "hora": "09:00", "durada_min": 50, "modalitat": "F7", "subcamp": "Camp 1", "categoria": "Prebenjamí Primera Divisió - Grup 3", "local": "C.E. EUROPA 'C'", "visitant": "C.F. JÚPITER 'A'", "url_fcf": "https://www.fcf.cat/acta/12345670", "resultat_cache": "4-2" },
-        { "id_acta": "12345671", "dia": "2026-11-28", "hora": "09:00", "durada_min": 50, "modalitat": "F7", "subcamp": "Camp 2", "categoria": "Prebenjamí Segona Divisió - Grup 11", "local": "C.E. EUROPA 'F'", "visitant": "A.E. PRAT 'D'", "url_fcf": "https://www.fcf.cat/acta/12345671", "resultat_cache": "1-1" },
-        { "id_acta": "12345678", "dia": "2026-11-28", "hora": "10:30", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 1", "categoria": "Benjamí Segona Divisió - Grup 14", "local": "C.E. EUROPA 'B'", "visitant": "U.E. SANT ANDREU 'C'", "url_fcf": "https://www.fcf.cat/acta/12345678", "resultat_cache": null },
-        { "id_acta": "12345679", "dia": "2026-11-28", "hora": "10:30", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 2", "categoria": "Aleví Tercera Divisió - Grup 8", "local": "C.E. EUROPA 'D'", "visitant": "C.F. DAMM 'E'", "url_fcf": "https://www.fcf.cat/acta/12345679", "resultat_cache": null },
-        { "id_acta": "12345680", "dia": "2026-11-28", "hora": "12:15", "durada_min": 80, "modalitat": "F11", "subcamp": null, "categoria": "Infantil Primera Divisió - Grup 2", "local": "C.E. EUROPA 'A'", "visitant": "C.E. MERCANTIL 'A'", "url_fcf": "https://www.fcf.cat/acta/12345680", "resultat_cache": null },
-        { "id_acta": "12345681", "dia": "2026-11-28", "hora": "16:30", "durada_min": 90, "modalitat": "F11", "subcamp": null, "categoria": "Juvenil Preferent - Grup 1", "local": "C.E. EUROPA 'A'", "visitant": "C.F. GAVÀ 'A'", "url_fcf": "https://www.fcf.cat/acta/12345681", "resultat_cache": null },
-        { "id_acta": "12345682", "dia": "2026-11-29", "hora": "11:00", "durada_min": 90, "modalitat": "F11", "subcamp": null, "categoria": "Amateur Quarta Catalana - Grup 9", "local": "C.E. EUROPA 'C'", "visitant": "C.D. MONTCADA 'B'", "url_fcf": "https://www.fcf.cat/acta/12345682", "resultat_cache": null }
+        {
+          "id_acta": "12345670",
+          "dia": "2026-11-28",
+          "hora": "09:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": "Camp 1",
+          "categoria": "PREBENJAMÍ S7 - GRUP 3",
+          "local": "C.E. EUROPA 'C'",
+          "visitant": "C.F. JÚPITER 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/prebenjami-s7/grup-3/jornada-10/c-e-europa-c-vs-c-f-jupiter-a",
+          "resultat_cache": "4-2"
+        },
+        {
+          "id_acta": "12345671",
+          "dia": "2026-11-28",
+          "hora": "09:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": "Camp 2",
+          "categoria": "PREBENJAMÍ S7 - GRUP 11",
+          "local": "C.E. EUROPA 'F'",
+          "visitant": "A.E. PRAT 'D'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/prebenjami-s7/grup-11/jornada-10/c-e-europa-f-vs-a-e-prat-d",
+          "resultat_cache": "1-1"
+        },
+        {
+          "id_acta": "12345678",
+          "dia": "2026-11-28",
+          "hora": "10:30",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": "Camp 1",
+          "categoria": "SEGONA DIVISIÓ BENJAMÍ S9 - GRUP 14",
+          "local": "C.E. EUROPA 'B'",
+          "visitant": "U.E. SANT ANDREU 'C'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/segona-divisio-benjami-s9/grup-14/jornada-10/c-e-europa-b-vs-u-e-sant-andreu-c",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "12345679",
+          "dia": "2026-11-28",
+          "hora": "10:30",
+          "durada_min": 60,
+          "modalitat": "F7",
+          "subcamp": "Camp 2",
+          "categoria": "TERCERA DIVISIÓ ALEVÍ S11 - GRUP 8",
+          "local": "C.E. EUROPA 'D'",
+          "visitant": "C.F. DAMM 'E'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/tercera-divisio-alevi-s11/grup-8/jornada-10/c-e-europa-d-vs-c-f-damm-e",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "12345680",
+          "dia": "2026-11-28",
+          "hora": "12:15",
+          "durada_min": 70,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "INFANTIL PRIMERA DIVISIÓ S13 - GRUP 2",
+          "local": "C.E. EUROPA 'A'",
+          "visitant": "C.E. MERCANTIL 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/infantil-primera-divisio-s13/grup-2/jornada-10/c-e-europa-a-vs-c-e-mercantil-a",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "12345681",
+          "dia": "2026-11-28",
+          "hora": "16:30",
+          "durada_min": 90,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "JUVENIL PRIMERA DIVISIÓ - GRUP 1",
+          "local": "C.E. EUROPA 'A'",
+          "visitant": "C.F. GAVÀ 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/juvenil-primera-divisio/grup-1/jornada-10/c-e-europa-a-vs-c-f-gava-a",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "12345682",
+          "dia": "2026-11-29",
+          "hora": "11:00",
+          "durada_min": 90,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "QUARTA CATALANA - GRUP 9",
+          "local": "C.E. EUROPA 'C'",
+          "visitant": "C.D. MONTCADA 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/quarta-catalana/grup-9/jornada-10/c-e-europa-c-vs-c-d-montcada-b",
+          "resultat_cache": null
+        }
       ]
     },
     {
@@ -25,10 +109,58 @@
       "lat": 41.4335,
       "lon": 2.1898,
       "partits": [
-        { "id_acta": "22345601", "dia": "2026-11-28", "hora": "10:00", "durada_min": 80, "modalitat": "F11", "subcamp": null, "categoria": "Cadet Divisió d'Honor - Grup 1", "local": "U.E. SANT ANDREU 'A'", "visitant": "R.C.D. ESPANYOL 'B'", "url_fcf": "https://www.fcf.cat/acta/22345601", "resultat_cache": null },
-        { "id_acta": "22345602", "dia": "2026-11-28", "hora": "12:00", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 1", "categoria": "Aleví Primera Divisió - Grup 5", "local": "U.E. SANT ANDREU 'B'", "visitant": "C.F. MONTAÑESA 'A'", "url_fcf": "https://www.fcf.cat/acta/22345602", "resultat_cache": null },
-        { "id_acta": "22345603", "dia": "2026-11-28", "hora": "12:00", "durada_min": 50, "modalitat": "F7", "subcamp": "Camp 2", "categoria": "Benjamí Primera Divisió - Grup 7", "local": "U.E. SANT ANDREU 'D'", "visitant": "C.E. SANT GABRIEL 'B'", "url_fcf": "https://www.fcf.cat/acta/22345603", "resultat_cache": null },
-        { "id_acta": "22345604", "dia": "2026-11-29", "hora": "12:00", "durada_min": 90, "modalitat": "F11", "subcamp": null, "categoria": "Primera Federació - Grup 3", "local": "U.E. SANT ANDREU", "visitant": "C.E. SABADELL", "url_fcf": "https://www.fcf.cat/acta/22345604", "resultat_cache": null }
+        {
+          "id_acta": "22345601",
+          "dia": "2026-11-28",
+          "hora": "10:00",
+          "durada_min": 80,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "DIVISIÓ HONOR CADET S15 - GRUP 1",
+          "local": "U.E. SANT ANDREU 'A'",
+          "visitant": "R.C.D. ESPANYOL 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/divisio-honor-cadet-s15/grup-1/jornada-10/u-e-sant-andreu-a-vs-r-c-d-espanyol-b",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "22345602",
+          "dia": "2026-11-28",
+          "hora": "12:00",
+          "durada_min": 60,
+          "modalitat": "F7",
+          "subcamp": "Camp 1",
+          "categoria": "PRIMERA DIVISIÓ ALEVÍ S11 - GRUP 5",
+          "local": "U.E. SANT ANDREU 'B'",
+          "visitant": "C.F. MONTAÑESA 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-alevi-s11/grup-5/jornada-10/u-e-sant-andreu-b-vs-c-f-montanesa-a",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "22345603",
+          "dia": "2026-11-28",
+          "hora": "12:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": "Camp 2",
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S9 - GRUP 7",
+          "local": "U.E. SANT ANDREU 'D'",
+          "visitant": "C.E. SANT GABRIEL 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-7/jornada-10/u-e-sant-andreu-d-vs-c-e-sant-gabriel-b",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "22345604",
+          "dia": "2026-11-29",
+          "hora": "12:00",
+          "durada_min": 90,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "PRIMERA FEDERACIÓ - GRUP 3",
+          "local": "U.E. SANT ANDREU",
+          "visitant": "C.E. SABADELL",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-federacio/grup-3/jornada-10/u-e-sant-andreu-vs-c-e-sabadell",
+          "resultat_cache": null
+        }
       ]
     },
     {
@@ -38,8 +170,32 @@
       "lat": 41.4093,
       "lon": 2.1617,
       "partits": [
-        { "id_acta": "32345601", "dia": "2026-11-28", "hora": "11:00", "durada_min": 90, "modalitat": "F11", "subcamp": null, "categoria": "Juvenil Lliga Nacional - Grup 7", "local": "C.E. EUROPA 'A'", "visitant": "C.E. L'HOSPITALET 'A'", "url_fcf": "https://www.fcf.cat/acta/32345601", "resultat_cache": null },
-        { "id_acta": "32345602", "dia": "2026-11-29", "hora": "12:00", "durada_min": 90, "modalitat": "F11", "subcamp": null, "categoria": "Segona Federació - Grup 3", "local": "C.E. EUROPA", "visitant": "U.E. CORNELLÀ", "url_fcf": "https://www.fcf.cat/acta/32345602", "resultat_cache": null }
+        {
+          "id_acta": "32345601",
+          "dia": "2026-11-28",
+          "hora": "11:00",
+          "durada_min": 90,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "JUVENIL PRIMERA DIVISIÓ - GRUP 4",
+          "local": "C.E. EUROPA 'A'",
+          "visitant": "C.E. L'HOSPITALET 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/juvenil-primera-divisio/grup-4/jornada-10/c-e-europa-a-vs-c-e-l-hospitalet-a",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "32345602",
+          "dia": "2026-11-29",
+          "hora": "12:00",
+          "durada_min": 90,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "SEGONA FEDERACIÓ - GRUP 3",
+          "local": "C.E. EUROPA",
+          "visitant": "U.E. CORNELLÀ",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/segona-federacio/grup-3/jornada-10/c-e-europa-vs-u-e-cornella",
+          "resultat_cache": null
+        }
       ]
     },
     {
@@ -49,8 +205,32 @@
       "lat": 41.3536,
       "lon": 2.1089,
       "partits": [
-        { "id_acta": "42345601", "dia": "2026-11-28", "hora": "09:30", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 1", "categoria": "Aleví Segona Divisió - Grup 21", "local": "C.F. PUBILLA CASAS 'A'", "visitant": "C.E. HOSPITALET 'C'", "url_fcf": "https://www.fcf.cat/acta/42345601", "resultat_cache": null },
-        { "id_acta": "42345602", "dia": "2026-11-28", "hora": "11:00", "durada_min": 80, "modalitat": "F11", "subcamp": null, "categoria": "Infantil Segona Divisió - Grup 12", "local": "C.F. PUBILLA CASAS 'A'", "visitant": "U.D. CAN VIDALET 'B'", "url_fcf": "https://www.fcf.cat/acta/42345602", "resultat_cache": null }
+        {
+          "id_acta": "42345601",
+          "dia": "2026-11-28",
+          "hora": "09:30",
+          "durada_min": 60,
+          "modalitat": "F7",
+          "subcamp": "Camp 1",
+          "categoria": "SEGONA DIVISIÓ ALEVÍ S11 - GRUP 21",
+          "local": "C.F. PUBILLA CASAS 'A'",
+          "visitant": "C.E. HOSPITALET 'C'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/segona-divisio-alevi-s11/grup-21/jornada-10/c-f-pubilla-casas-a-vs-c-e-hospitalet-c",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "42345602",
+          "dia": "2026-11-28",
+          "hora": "11:00",
+          "durada_min": 70,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "INFANTIL SEGONA DIVISIÓ S13 - GRUP 12",
+          "local": "C.F. PUBILLA CASAS 'A'",
+          "visitant": "U.D. CAN VIDALET 'B'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/infantil-segona-divisio-s13/grup-12/jornada-10/c-f-pubilla-casas-a-vs-u-d-can-vidalet-b",
+          "resultat_cache": null
+        }
       ]
     },
     {
@@ -58,10 +238,34 @@
       "nom": "Camp Municipal de Palau",
       "municipi": "Girona",
       "lat": 41.9672,
-      "lon": 2.8090,
+      "lon": 2.809,
       "partits": [
-        { "id_acta": "52345601", "dia": "2026-11-28", "hora": "10:00", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 1", "categoria": "Benjamí Primera Divisió - Grup 30", "local": "C.F. GIRONA PALAU 'A'", "visitant": "U.E. CASSÀ 'A'", "url_fcf": "https://www.fcf.cat/acta/52345601", "resultat_cache": null },
-        { "id_acta": "52345602", "dia": "2026-11-28", "hora": "10:00", "durada_min": 60, "modalitat": "F7", "subcamp": "Camp 2", "categoria": "Aleví Primera Divisió - Grup 31", "local": "C.F. GIRONA PALAU 'B'", "visitant": "C.F. SALT 'A'", "url_fcf": "https://www.fcf.cat/acta/52345602", "resultat_cache": null }
+        {
+          "id_acta": "52345601",
+          "dia": "2026-11-28",
+          "hora": "10:00",
+          "durada_min": 50,
+          "modalitat": "F7",
+          "subcamp": "Camp 1",
+          "categoria": "PRIMERA DIVISIÓ BENJAMÍ S10 - GRUP 30",
+          "local": "C.F. GIRONA PALAU 'A'",
+          "visitant": "U.E. CASSÀ 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s10/grup-30/jornada-10/c-f-girona-palau-a-vs-u-e-cassa-a",
+          "resultat_cache": null
+        },
+        {
+          "id_acta": "52345602",
+          "dia": "2026-11-28",
+          "hora": "10:00",
+          "durada_min": 60,
+          "modalitat": "F7",
+          "subcamp": "Camp 2",
+          "categoria": "PRIMERA DIVISIÓ ALEVÍ S12 - GRUP 31",
+          "local": "C.F. GIRONA PALAU 'B'",
+          "visitant": "C.F. SALT 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-alevi-s12/grup-31/jornada-10/c-f-girona-palau-b-vs-c-f-salt-a",
+          "resultat_cache": null
+        }
       ]
     },
     {
@@ -71,16 +275,29 @@
       "lat": 41.6232,
       "lon": 0.6164,
       "partits": [
-        { "id_acta": "62345601", "dia": "2026-11-29", "hora": "10:30", "durada_min": 80, "modalitat": "F11", "subcamp": null, "categoria": "Cadet Primera Divisió - Grup 6", "local": "U.E. LLEIDA 'A'", "visitant": "C.F. BALAGUER 'A'", "url_fcf": "https://www.fcf.cat/acta/62345601", "resultat_cache": null }
+        {
+          "id_acta": "62345601",
+          "dia": "2026-11-29",
+          "hora": "10:30",
+          "durada_min": 80,
+          "modalitat": "F11",
+          "subcamp": null,
+          "categoria": "CADET PRIMERA DIVISIÓ S15 - GRUP 6",
+          "local": "U.E. LLEIDA 'A'",
+          "visitant": "C.F. BALAGUER 'A'",
+          "url_fcf": "https://www.fcf.cat/ca/partit/2026-2027/cadet-primera-divisio-s15/grup-6/jornada-10/u-e-lleida-a-vs-c-f-balaguer-a",
+          "resultat_cache": null
+        }
       ]
     },
     {
       "id": "fcf_43148_reus",
       "nom": "Camp Municipal Mas Iglesias",
       "municipi": "Reus",
-      "lat": 41.1460,
-      "lon": 1.1220,
+      "lat": 41.146,
+      "lon": 1.122,
       "partits": []
     }
-  ]
+  ],
+  "_avis": "DADES DE PROVA INVENTADES: els partits no són reals i els enllaços no existeixen."
 }

@@ -25,6 +25,7 @@ const estat = {
   camps: [],
   camp: null,
   posicio: null, // { lat, lon }
+  prova: false,  // s'estan mostrant dades de prova inventades
 };
 
 // ---------- Utilitats ----------
@@ -318,7 +319,10 @@ async function carregaDades() {
       const r = await fetch(url, { cache: 'no-cache' });
       if (!r.ok) continue;
       const dades = await r.json();
-      if (Array.isArray(dades.camps) && dades.camps.length) return dades;
+      if (Array.isArray(dades.camps) && dades.camps.length) {
+        dades.prova = url.includes('mock');
+        return dades;
+      }
     } catch { /* prova la següent font */ }
   }
   throw new Error("Encara no hi ha partits carregats per a aquesta setmana");
@@ -353,6 +357,8 @@ async function inicia() {
   try {
     const dades = await carregaDades();
     estat.camps = dades.camps;
+    estat.prova = dades.prova;
+    document.body.classList.toggle('prova', estat.prova);
   } catch (err) {
     el.campNom.textContent = 'Error';
     el.contingut.innerHTML = `<p class="estat">${escapa(err.message)}. Torna-ho a provar més tard.</p>`;

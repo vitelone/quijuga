@@ -255,3 +255,24 @@ button { font: inherit; cursor: pointer; }
 .llista-camps .nom { font-weight: 700; }
 .llista-camps .mun { display: block; font-size: .8rem; color: var(--gris); }
 .llista-camps .dist { font-size: .8rem; color: var(--gris); white-space: nowrap; }
+
+/* ---------- Avís de dades de prova ---------- */
+body.prova .header::after {
+  content: "DADES DE PROVA · partits inventats";
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: .15rem .6rem;
+  border-radius: 0 0 6px 6px;
+  background: #c0392b;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+body.prova .header { position: relative; }
+body.prova .contingut { padding-top: 1.4rem; }
