@@ -1,0 +1,13 @@
+installacio.html https://www.fcf.cat/ca/camps/camp-de-futbol-mpal-horta#info
+acta.html https://www.fcf.cat/ca/partit/2026-2027/primera-divisio-benjami-s9/grup-9/jornada-9/horta-uat-a-1b9-vs-fundacio-pe-europa-b-1b9
+jornada.html https://www.fcf.cat/ca/competicio/2026-2027/primera-divisio-benjami-s9/grup-9/resultats?jornada=9
+competicions.html https://www.fcf.cat/ca/competicio
+sitemap-competicions.xml https://www.fcf.cat/sitemap/competicions.xml
+calendari.html https://www.fcf.cat/ca/competicio/2026-2027/primera-divisio-benjami-s9/grup-9/calendari
+classificacio.html https://www.fcf.cat/ca/competicio/2026-2027/primera-divisio-benjami-s9/grup-9/classificacio?jornada=9
+equip.html (fitxa d'equip FUNDACIO P.E. EUROPA 'B', Primera Divisió Benjamí S9)
+resultats_sense_jornada.html https://www.fcf.cat/ca/competicio/2026-2027/primera-divisio-benjami-s9/grup-9/resultats
+sitemap.xml https://www.fcf.cat/sitemap.xml
+club.html https://www.fcf.cat/ca/clubs/fundacio-pe-europa
+equips-1.xml https://www.fcf.cat/sitemap/equips-1.xml
+camps.xml https://www.fcf.cat/sitemap/camps.xml

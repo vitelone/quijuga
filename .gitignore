@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.*.tmp
+
+# Mostres reals: contenen dades personals (alineacions de menors). No pujar-les.
+scraper/mostres/*.html
+scraper/mostres/*.xml
+
+# Document intern (pla de negoci): no es publica
+quijuga.md

@@ -1,0 +1,257 @@
+:root {
+  --verd: #0b3d2e;
+  --verd-clar: #14724f;
+  --groc: #ffd23f;
+  --fons: #f3f5f4;
+  --text: #111;
+  --gris: #5f6b66;
+  --vora: #d8dedb;
+  --radi: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fons);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+
+button { font: inherit; cursor: pointer; }
+
+/* ---------- Layout 50/50 ---------- */
+.app {
+  height: 100vh;        /* fallback */
+  height: 100dvh;
+  display: grid;
+  /* Header + contingut = 50% superior; publicitat = 50% inferior */
+  grid-template-rows: 40px minmax(0, 1fr) 50%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: 0 .75rem;
+  background: var(--verd);
+  color: #fff;
+}
+
+.logo { color: #fff; font-weight: 800; text-decoration: none; letter-spacing: -.02em; white-space: nowrap; }
+.logo span { color: var(--groc); }
+
+.camp-btn {
+  min-width: 0;
+  max-width: 65%;
+  padding: .25rem .6rem;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  font-size: .85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contingut {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding: .5rem .6rem;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.titol-seccio {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--gris);
+}
+.titol-seccio .viu { color: #c0392b; }
+
+.estat { margin: auto; text-align: center; color: var(--gris); padding: 1rem; }
+
+/* ---------- Targetes ---------- */
+.targetes {
+  flex: 1;
+  display: grid;
+  gap: .4rem;
+  min-height: 0;
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+.targeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: .3rem;
+  padding: .55rem .7rem;
+  background: #fff;
+  border: 1px solid var(--vora);
+  border-left: 5px solid var(--verd-clar);
+  border-radius: var(--radi);
+  min-height: 0;
+}
+
+.targeta-cap {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  flex-wrap: wrap;
+  font-size: .8rem;
+}
+
+.etiqueta {
+  padding: .1rem .45rem;
+  border-radius: 6px;
+  background: var(--verd);
+  color: #fff;
+  font-weight: 700;
+  font-size: .75rem;
+  white-space: nowrap;
+}
+.etiqueta.sub { background: var(--groc); color: var(--text); }
+
+.categoria { font-weight: 800; font-size: .95rem; color: var(--verd); }
+.grup { color: var(--gris); font-size: .75rem; }
+
+.equips {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: .4rem;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1.15;
+}
+.equips .local { text-align: right; }
+.equips .vs { font-size: .75rem; color: var(--gris); font-weight: 600; }
+.equips .marcador { font-size: 1.2rem; font-weight: 900; color: var(--verd); }
+
+.accions { display: flex; gap: .4rem; justify-content: space-between; align-items: center; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  padding: .4rem .7rem;
+  border-radius: 8px;
+  border: 1px solid var(--vora);
+  background: #fff;
+  color: var(--text);
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn.primari { background: var(--verd); border-color: var(--verd); color: #fff; }
+.btn:disabled { opacity: .6; cursor: default; }
+
+.minut { font-size: .75rem; font-weight: 700; color: #c0392b; white-space: nowrap; }
+.minut.proper { color: var(--gris); }
+
+/* Cas 1: targeta única, gran */
+.targetes.unica .targeta { justify-content: center; gap: .8rem; padding: 1rem; }
+.targetes.unica .categoria { font-size: 1.15rem; }
+.targetes.unica .equips { font-size: 1.25rem; }
+.targetes.unica .btn.primari { padding: .7rem 1.2rem; font-size: 1rem; }
+
+/* ---------- Jornada del dia ---------- */
+.jornada summary {
+  padding: .45rem;
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--verd);
+  background: #fff;
+  border: 1px dashed var(--vora);
+  border-radius: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+.jornada summary::-webkit-details-marker { display: none; }
+.jornada ul { list-style: none; margin-top: .3rem; }
+.jornada li {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: .4rem;
+  align-items: center;
+  padding: .35rem .2rem;
+  border-bottom: 1px solid var(--vora);
+  font-size: .8rem;
+}
+.jornada li.passat { opacity: .5; }
+.jornada li a { color: var(--verd); text-decoration: none; }
+.jornada .h { font-weight: 800; }
+.jornada .cat { display: block; color: var(--gris); font-size: .72rem; }
+
+/* ---------- Publicitat ---------- */
+.publicitat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e6e9e8;
+  border-top: 2px solid var(--vora);
+  overflow: hidden;
+}
+.ad-slot {
+  width: 300px;
+  max-width: 95%;
+  height: 250px;
+  max-height: 95%;
+  display: grid;
+  place-items: center;
+  border: 2px dashed #b7c0bc;
+  color: #8a9590;
+  font-size: .8rem;
+  letter-spacing: .15em;
+}
+
+/* ---------- Selector de camp ---------- */
+.selector {
+  width: 100%;
+  max-width: 600px;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 auto;
+  border: 0;
+  padding: 0;
+  background: #fff;
+}
+.selector::backdrop { background: rgba(0,0,0,.4); }
+.selector-cap { display: flex; gap: .4rem; padding: .6rem; position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--vora); }
+.selector-cap input {
+  flex: 1;
+  padding: .6rem .8rem;
+  font-size: 1rem;
+  border: 1px solid var(--vora);
+  border-radius: 8px;
+}
+.tancar { width: 2.6rem; border: 0; background: var(--fons); border-radius: 8px; font-size: 1.1rem; }
+.gps-btn { margin: .6rem; width: calc(100% - 1.2rem); padding: .6rem; border-radius: 8px; border: 1px solid var(--verd); background: #fff; color: var(--verd); font-weight: 700; }
+.llista-camps { list-style: none; }
+.llista-camps button {
+  width: 100%;
+  text-align: left;
+  padding: .7rem .9rem;
+  border: 0;
+  border-bottom: 1px solid var(--vora);
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+}
+.llista-camps button:active { background: var(--fons); }
+.llista-camps .nom { font-weight: 700; }
+.llista-camps .mun { display: block; font-size: .8rem; color: var(--gris); }
+.llista-camps .dist { font-size: .8rem; color: var(--gris); white-space: nowrap; }
